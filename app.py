@@ -31,6 +31,13 @@ merged["Product_Cost"] = (
 # Revenue
 merged["Revenue"] = merged["Units"] * merged["Product_Price"]
 
+#profits
+
+merged["Profit"] = (
+    merged["Product_Price"] - merged["Product_Cost"]
+) * merged["Units"]
+
+
 # Sidebar
 
 st.sidebar.header("Filters")
@@ -41,7 +48,7 @@ selected_category = st.sidebar.selectbox(
 )
 
 # Filter the data based on the selected category
-# Filter the data based on the selected category
+
 
 if selected_category != "All":
     filtered_df = merged[
@@ -51,18 +58,21 @@ else:
     filtered_df = merged
 
 # KPI Calculations
+
 total_revenue = filtered_df["Revenue"].sum()
+total_profit = filtered_df["Profit"].sum()
 total_units = filtered_df["Units"].sum()
 total_products = merged["Product_ID"].nunique()
 total_stores = merged["Store_ID"].nunique()
 
 # KPI Cards
-c1, c2, c3, c4 = st.columns(4)
+c1, c2, c3, c4, c5 = st.columns(5)
 
 c1.metric("💰 Revenue", f"${total_revenue:,.0f}")
-c2.metric("📦 Units Sold", f"{total_units:,}")
-c3.metric("🧸 Products", total_products)
-c4.metric("🏪 Stores", total_stores)
+c2.metric("💸 Profit", f"${total_profit:,.0f}")
+c3.metric("📦 Units Sold", f"{total_units:,}")
+c4.metric("🧸 Products", total_products)
+c5.metric("🏪 Stores", total_stores)
 
 st.divider()
 
