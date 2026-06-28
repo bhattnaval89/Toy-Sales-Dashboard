@@ -16,9 +16,9 @@ The application transforms raw sales data into actionable business insights thro
 
 # 📸 Dashboard Preview
 
-```markdown
+
 ![Dashboard Preview](assets/dashboard.png)
-```
+
 
 
 
