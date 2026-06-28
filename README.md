@@ -75,12 +75,11 @@ The application transforms raw sales data into actionable business insights thro
 
 #  Tech Stack
 
- Technology | Purpose
- Python     | Programming Language              
- Streamlit  | Interactive Dashboard Development 
- Pandas     | Data Cleaning & Data Analysis     
- Git        | Version Control                   
- GitHub     | Project Hosting                   
+1.Python
+2. Streamlit for Interactive Dashboard Development 
+3.Pandas for Data Cleaning & Data Analysis     
+4. Git for Version Control                   
+5. GitHub for Project Hosting                   
 
 
 # 📂 Dataset
