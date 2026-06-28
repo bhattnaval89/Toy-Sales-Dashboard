@@ -1,3 +1,4 @@
+
 # 🧸 Toy Sales Dashboard
 
 An interactive Business Intelligence dashboard built using **Python, Pandas, and Streamlit** to analyze toy sales data across multiple stores, products, and categories.
@@ -15,9 +16,8 @@ The application transforms raw sales data into actionable business insights thro
 
 
 # 📸 Dashboard Preview
+<img width="854" height="395" alt="dashboard" src="https://github.com/user-attachments/assets/d144e52b-c20a-44c5-9a60-d48bb213973a" />
 
-
-![Dashboard Preview](assets/dashboard.png)
 
 
 
