@@ -16,7 +16,38 @@ The application transforms raw sales data into actionable business insights thro
 
 
 # 📸 Dashboard Preview
+
+**1. Landing Page**
+
+
 <img width="854" height="395" alt="dashboard" src="https://github.com/user-attachments/assets/d144e52b-c20a-44c5-9a60-d48bb213973a" />
+
+
+**2. Filter Feature**
+
+
+
+
+
+
+
+
+<img width="205" height="337" alt="filter" src="https://github.com/user-attachments/assets/6c9e7d15-defa-4bbd-8487-c7560e4bc8bc" />
+
+
+
+**3. Revenue Ranking Chart**
+
+
+
+
+
+
+
+
+
+<img width="605" height="295" alt="chart" src="https://github.com/user-attachments/assets/17d95778-7a92-4f5d-a8e4-bf1fc14fa07b" />
+
 
 
 
