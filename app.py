@@ -16,7 +16,9 @@ stores = pd.read_csv("data/stores.csv")
 # Merge datasets
 merged = sales.merge(products, on="Product_ID")
 merged = merged.merge(stores, on="Store_ID")
+
 # Convert prices from text to numbers
+
 merged["Product_Price"] = (
     merged["Product_Price"]
     .replace("[$,]", "", regex=True)
