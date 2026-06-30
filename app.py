@@ -40,7 +40,7 @@ merged["Profit"] = (
 ) * merged["Units"]
 
 
-# Sidebar
+# category selectbox
 
 st.sidebar.header("Filters")
 
@@ -49,23 +49,47 @@ selected_category = st.sidebar.selectbox(
     ["All"] + list(merged["Product_Category"].unique())
 )
 
-# Filter the data based on the selected category
+#store selectbox
 
+selected_store = st.sidebar.selectbox(
+    "Select Store",
+    ["All"] + sorted(merged["Store_Name"].unique())
+)
+#city selectbox
+selected_city = st.sidebar.selectbox(
+    "Select City",
+    ["All"] + sorted(merged["Store_City"].unique())
+)
 
+# Filter the data based on the selected category - updated
+
+filtered_df = merged.copy()
+
+#categ.
 if selected_category != "All":
-    filtered_df = merged[
-        merged["Product_Category"] == selected_category
+    filtered_df = filtered_df[
+        filtered_df["Product_Category"] == selected_category
     ]
-else:
-    filtered_df = merged
+
+# Store
+if selected_store != "All":
+    filtered_df = filtered_df[
+        filtered_df["Store_Name"] == selected_store
+    ]
+#city
+if selected_city != "All":
+    filtered_df = filtered_df[
+        filtered_df["City"] == selected_category
+    ]
+
 
 # KPI Calculations
 
 total_revenue = filtered_df["Revenue"].sum()
 total_profit = filtered_df["Profit"].sum()
 total_units = filtered_df["Units"].sum()
-total_products = merged["Product_ID"].nunique()
-total_stores = merged["Store_ID"].nunique()
+total_products = filtered_df["Product_ID"].nunique()
+total_stores =filtered_df["Store_ID"].nunique()
 
 # KPI Cards
 c1, c2, c3, c4, c5 = st.columns(5)
@@ -76,12 +100,14 @@ c3.metric("📦 Units Sold", f"{total_units:,}")
 c4.metric("🧸 Products", total_products)
 c5.metric("🏪 Stores", total_stores)
 
+#preview table
 st.divider()
 
 st.subheader("Dataset Preview")
 
 st.dataframe(filtered_df.head())
 
+#revenue chart
 st.divider()
 
 st.subheader("🏆 Top 10 Products by Revenue")
@@ -94,3 +120,17 @@ product_revenue = (
 )
 
 st.bar_chart(product_revenue)
+
+# store rev
+st.divider()
+
+st.subheader("🏪 Revenue by Store")
+
+store_revenue = (
+    filtered_df.groupby("Store_Name")["Revenue"]
+    .sum()
+    .sort_values(ascending=False)
+)
+
+st.bar_chart(store_revenue) 
+
