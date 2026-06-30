@@ -79,7 +79,7 @@ if selected_store != "All":
 #city
 if selected_city != "All":
     filtered_df = filtered_df[
-        filtered_df["City"] == selected_category
+        filtered_df["Store_City"] == selected_city
     ]
 
 
